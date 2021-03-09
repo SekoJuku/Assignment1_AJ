@@ -9,6 +9,16 @@
 <html>
 <head>
     <title>Log In</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        form {
+
+        }
+    </style>
 </head>
 <body>
 <form action="s1" method="post">
@@ -20,8 +30,13 @@
         <label for="userpass">Password: </label>
         <input type="password" id="userpass" name="userpass">
     </div>
-    <%=getServletInfo()%>
-    <%=request.getAttribute("error")%><br>
+    <%
+        if(request.getAttribute("err") != null) {
+            %>
+            <%=request.getAttribute("err")%><br>
+            <%
+    }
+    %>
     <input type="submit" placeholder="Log In">
 </form>
 </body>

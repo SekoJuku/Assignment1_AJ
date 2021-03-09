@@ -1,10 +1,4 @@
-<%@ page import="com.company.User" %><%--
-  Created by IntelliJ IDEA.
-  User: Арман
-  Date: 13.09.2020
-  Time: 23:22
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.company.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -15,15 +9,8 @@
     </style>
 </head>
 <body class="d-flex flex-column h-100">
-    <% User user = (User) request.getAttribute("user"); %>
-<%--  Header  --%>
+<% User user = (User) request.getAttribute("user"); %>
 <%@ include file="header.jsp"%>
-<%--  Body  --%>
-<%
-    /*
-        Serikzhan was here! Oldschool rules!
-    */
-%>
     <div style="text-align: center;">
         <img src="https://sportmassag.ru/assets/images/mumia.png" alt="">
     </div>
@@ -39,7 +26,6 @@
             <input type="submit" placeholder="Send">
         </form>
     </div>
-<%--  Footer  --%>
 <%@include file="footer.jsp"%>
 </body>
 </html>

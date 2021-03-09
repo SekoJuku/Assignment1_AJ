@@ -11,36 +11,25 @@ import java.io.IOException;
 public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
-
-
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-
-        // Getting
         String username = req.getParameter("username");
         String userpass = req.getParameter("userpass");
 
         User user = new User();
 
-
-
         req.setAttribute("user",user);
-
-        if(user.getUsername().equals(username) && user.getPass().equals(userpass)) {
-            try {
+        try{
+            if(user.getUsername().equals(username) && user.getPass().equals(userpass)) {
                 req.getRequestDispatcher("/jsp/menu.jsp").forward(req,resp);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
+            } else {
+                req.setAttribute("err","Wrong username or password. Try again!");
+                req.getRequestDispatcher("/").forward(req,resp);
             }
-        } else {
-            req.setAttribute("error","Wrong username or password. Try again!");
-            req.getRequestDispatcher(getServletContext().getContextPath()+"jsp/login.jsp");
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
         }
-
-
     }
 }
